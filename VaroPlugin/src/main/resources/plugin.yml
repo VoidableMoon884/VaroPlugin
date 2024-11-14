@@ -1,0 +1,31 @@
+name: VaroPlugin
+version: 1.3
+main: de.vmoon.varoPlugin.VaroPlugin
+api-version: 1.16
+
+commands:
+  vteam:
+    description: Verwaltung von Teams im Varo Plugin
+    usage: /vteam [create|delete|join|leave|modify|list]
+    permission: varo.team
+    permission-message: Du hast keine Berechtigung, diesen Befehl auszuführen.
+
+permissions:
+  varo.team:
+    description: Erlaubt das Ausführen des vteam-Befehls
+    default: true
+  varo.team.create:
+    description: Erlaubt das Erstellen eines Teams
+    default: op
+  varo.team.delete:
+    description: Erlaubt das Löschen eines Teams
+    default: op
+  varo.team.join:
+    description: Erlaubt das Beitreten eines Teams
+    default: true
+  varo.team.leave:
+    description: Erlaubt das Verlassen eines Teams
+    default: true
+  varo.team.modify:
+    description: Erlaubt das Ändern eines Teams
+    default: op
