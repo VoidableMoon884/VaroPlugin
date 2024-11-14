@@ -1,5 +1,5 @@
 name: VaroPlugin
-version: 1.3
+version: 1.4
 main: de.vmoon.varoPlugin.VaroPlugin
 api-version: 1.16
 

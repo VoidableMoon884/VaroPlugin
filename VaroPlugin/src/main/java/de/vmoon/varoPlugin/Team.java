@@ -9,32 +9,27 @@ import java.util.Set;
 public class Team {
     private String name;
     private ChatColor color;
-    private final Set<Player> players;
+    private final Set<Player> players = new HashSet<>();
 
     public Team(String name, ChatColor color) {
         this.name = name;
         this.color = color;
-        this.players = new HashSet<>();
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public ChatColor getColor() {
         return color;
     }
 
-    public void setColor(ChatColor color) {
-        this.color = color;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Set<Player> getPlayers() {
-        return players;
+    public void setColor(ChatColor color) {
+        this.color = color;
     }
 
     public void addPlayer(Player player) {
@@ -43,5 +38,9 @@ public class Team {
 
     public void removePlayer(Player player) {
         players.remove(player);
+    }
+
+    public Set<Player> getPlayers() {
+        return players;
     }
 }

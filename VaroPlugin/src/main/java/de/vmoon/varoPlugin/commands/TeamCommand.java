@@ -137,6 +137,8 @@ public class TeamCommand implements CommandExecutor, TabCompleter {
         player.setPlayerListName(team.getColor() + "[" + teamName + "] " + ChatColor.RESET + player.getName());
         player.setDisplayName(team.getColor() + "[" + teamName + "] " + ChatColor.RESET + player.getName());
         player.sendMessage(ChatColor.GREEN + "Du bist dem Team " + team.getColor() + teamName + ChatColor.GREEN + " beigetreten.");
+
+        plugin.savePlayerTeam(player, team);  // Speichern der Teamzugehörigkeit des Spielers
     }
 
     private void handleLeave(Player player) {
@@ -155,6 +157,8 @@ public class TeamCommand implements CommandExecutor, TabCompleter {
         player.setPlayerListName(player.getName());
         player.setDisplayName(player.getName());
         player.sendMessage(ChatColor.GREEN + "Du hast das Team " + team.getColor() + team.getName() + ChatColor.GREEN + " verlassen.");
+
+        plugin.savePlayerTeam(player, null);  // Entfernen der Teamzugehörigkeit des Spielers
     }
 
     private void handleModify(Player player, String[] args) {
@@ -210,14 +214,12 @@ public class TeamCommand implements CommandExecutor, TabCompleter {
         List<String> suggestions = new ArrayList<>();
 
         if (args.length == 1) {
-            // Vorschläge für den ersten Parameter (create, delete, join, leave, modify, list)
             for (String subCommand : new String[]{"create", "delete", "join", "leave", "modify", "list"}) {
                 if (subCommand.startsWith(args[0].toLowerCase())) {
                     suggestions.add(subCommand);
                 }
             }
         } else if (args.length == 2) {
-            // Vorschläge für den zweiten Parameter (Teamnamen)
             if (args[0].equalsIgnoreCase("delete") || args[0].equalsIgnoreCase("join") || args[0].equalsIgnoreCase("modify")) {
                 for (String teamName : plugin.getTeams().keySet()) {
                     if (teamName.startsWith(args[1].toLowerCase())) {
@@ -226,7 +228,6 @@ public class TeamCommand implements CommandExecutor, TabCompleter {
                 }
             }
         } else if (args.length == 3 && args[0].equalsIgnoreCase("modify")) {
-            // Vorschläge für die Farbe bei modify
             for (ChatColor color : ChatColor.values()) {
                 if (color.name().toLowerCase().startsWith(args[2].toLowerCase())) {
                     suggestions.add(color.name());

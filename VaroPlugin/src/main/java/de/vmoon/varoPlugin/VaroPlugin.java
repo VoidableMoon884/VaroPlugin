@@ -9,34 +9,44 @@ import java.util.Map;
 
 public class VaroPlugin extends JavaPlugin {
     private final Map<String, Team> teams = new HashMap<>();
+    private final Map<Player, Team> playerTeams = new HashMap<>();
 
     @Override
     public void onEnable() {
         getCommand("vteam").setExecutor(new TeamCommand(this));
+        getCommand("vteam").setTabCompleter(new TeamCommand(this));
+        loadPlayerTeams();
     }
 
-    // Gibt das Team eines Spielers zurück
-    public Team getPlayerTeam(Player player) {
-        for (Team team : teams.values()) {
-            if (team.getPlayers().contains(player)) {
-                return team;  // Rückgabe des Teams, wenn der Spieler Mitglied ist
-            }
-        }
-        return null;  // Falls der Spieler keinem Team angehört
+    public void addTeam(String teamName, Team team) {
+        teams.put(teamName, team);
     }
 
-    // Gibt eine Map mit allen Teams zurück
+    public void removeTeam(String teamName) {
+        teams.remove(teamName);
+    }
+
+    public Team getTeam(String teamName) {
+        return teams.get(teamName);
+    }
+
     public Map<String, Team> getTeams() {
         return teams;
     }
 
-    // Fügt ein Team hinzu
-    public void addTeam(String name, Team team) {
-        teams.put(name, team);
+    public void savePlayerTeam(Player player, Team team) {
+        if (team == null) {
+            playerTeams.remove(player);
+        } else {
+            playerTeams.put(player, team);
+        }
     }
 
-    // Entfernt ein Team
-    public void removeTeam(String name) {
-        teams.remove(name);
+    public Team getPlayerTeam(Player player) {
+        return playerTeams.get(player);
+    }
+
+    public void loadPlayerTeams() {
+        // Hier könnten Teamzugehörigkeiten aus einer Datei oder Datenbank geladen werden
     }
 }
