@@ -1,5 +1,5 @@
 name: VaroPlugin
-version: 1.4
+version: 1.8
 main: de.vmoon.varoPlugin.VaroPlugin
 api-version: 1.16
 
@@ -9,6 +9,31 @@ commands:
     usage: /vteam [create|delete|join|leave|modify|list]
     permission: varo.team
     permission-message: Du hast keine Berechtigung, diesen Befehl auszuführen.
+    subcommands:
+      create:
+        description: Erstelle ein neues Team
+        permission: varo.team.create
+        permission-message: Du hast keine Berechtigung, ein Team zu erstellen.
+      delete:
+        description: Lösche ein Team
+        permission: varo.team.delete
+        permission-message: Du hast keine Berechtigung, ein Team zu löschen.
+      join:
+        description: Tritt einem Team bei
+        permission: varo.team.join
+        permission-message: Du hast keine Berechtigung, einem Team beizutreten.
+      leave:
+        description: Verlasse dein Team
+        permission: varo.team.leave
+        permission-message: Du hast keine Berechtigung, ein Team zu verlassen.
+      modify:
+        description: Ändere ein Team
+        permission: varo.team.modify
+        permission-message: Du hast keine Berechtigung, ein Team zu ändern.
+      list:
+        description: Liste alle Teams auf
+        permission: varo.team.list
+        permission-message: Du hast keine Berechtigung, die Teamliste anzuzeigen.
 
 permissions:
   varo.team:
@@ -29,3 +54,6 @@ permissions:
   varo.team.modify:
     description: Erlaubt das Ändern eines Teams
     default: op
+  varo.team.list:
+    description: Erlaubt das Anzeigen der Teamliste
+    default: true

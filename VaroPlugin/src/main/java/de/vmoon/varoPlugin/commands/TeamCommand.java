@@ -112,6 +112,7 @@ public class TeamCommand implements CommandExecutor, TabCompleter {
         }
 
         plugin.removeTeam(teamName);
+        plugin.savePlayerTeams();  // Sicherstellen, dass die Spielerzuordnung gespeichert wird
         player.sendMessage(ChatColor.GREEN + "Team " + teamName + " wurde gelöscht.");
     }
 
@@ -140,6 +141,7 @@ public class TeamCommand implements CommandExecutor, TabCompleter {
 
         plugin.savePlayerTeam(player, team);  // Speichern der Teamzugehörigkeit des Spielers
     }
+
 
     private void handleLeave(Player player) {
         if (!player.hasPermission("varo.team.leave")) {
