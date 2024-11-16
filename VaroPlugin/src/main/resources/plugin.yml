@@ -1,59 +1,17 @@
 name: VaroPlugin
-version: 1.8
+version: '1.5'
 main: de.vmoon.varoPlugin.VaroPlugin
-api-version: 1.16
-
+api-version: '1.20'
 commands:
-  vteam:
-    description: Verwaltung von Teams im Varo Plugin
-    usage: /vteam [create|delete|join|leave|modify|list]
-    permission: varo.team
-    permission-message: Du hast keine Berechtigung, diesen Befehl auszuführen.
-    subcommands:
-      create:
-        description: Erstelle ein neues Team
-        permission: varo.team.create
-        permission-message: Du hast keine Berechtigung, ein Team zu erstellen.
-      delete:
-        description: Lösche ein Team
-        permission: varo.team.delete
-        permission-message: Du hast keine Berechtigung, ein Team zu löschen.
-      join:
-        description: Tritt einem Team bei
-        permission: varo.team.join
-        permission-message: Du hast keine Berechtigung, einem Team beizutreten.
-      leave:
-        description: Verlasse dein Team
-        permission: varo.team.leave
-        permission-message: Du hast keine Berechtigung, ein Team zu verlassen.
-      modify:
-        description: Ändere ein Team
-        permission: varo.team.modify
-        permission-message: Du hast keine Berechtigung, ein Team zu ändern.
-      list:
-        description: Liste alle Teams auf
-        permission: varo.team.list
-        permission-message: Du hast keine Berechtigung, die Teamliste anzuzeigen.
-
+  register:
+    description: Registriere dich für das Varo-Plugin
+    usage: /register
+    permission: varo.register
+    permission-message: "Du hast keine Berechtigung, diesen Befehl auszuführen."
+  unregister:
+    description: Melde einen Spieler ab
+    usage: /unregister
 permissions:
-  varo.team:
-    description: Erlaubt das Ausführen des vteam-Befehls
-    default: true
-  varo.team.create:
-    description: Erlaubt das Erstellen eines Teams
-    default: op
-  varo.team.delete:
-    description: Erlaubt das Löschen eines Teams
-    default: op
-  varo.team.join:
-    description: Erlaubt das Beitreten eines Teams
-    default: true
-  varo.team.leave:
-    description: Erlaubt das Verlassen eines Teams
-    default: true
-  varo.team.modify:
-    description: Erlaubt das Ändern eines Teams
-    default: op
-  varo.team.list:
-    description: Erlaubt das Anzeigen der Teamliste
+  varo.register:
+    description: Ermöglicht es Spielern, sich zu registrieren
     default: true

@@ -1,3 +1,4 @@
-S:\!Minecraft\Plugins\VaroPlugin\VaroPlugin\src\main\java\de\vmoon\varoPlugin\commands\TeamCommand.java
-S:\!Minecraft\Plugins\VaroPlugin\VaroPlugin\src\main\java\de\vmoon\varoPlugin\Team.java
+S:\!Minecraft\Plugins\VaroPlugin\VaroPlugin\src\main\java\de\vmoon\varoPlugin\commands\registerCommand.java
+S:\!Minecraft\Plugins\VaroPlugin\VaroPlugin\src\main\java\de\vmoon\varoPlugin\commands\unregisterCommand.java
+S:\!Minecraft\Plugins\VaroPlugin\VaroPlugin\src\main\java\de\vmoon\varoPlugin\handler\scoreboardHandler.java
 S:\!Minecraft\Plugins\VaroPlugin\VaroPlugin\src\main\java\de\vmoon\varoPlugin\VaroPlugin.java

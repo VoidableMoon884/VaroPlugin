@@ -1,5 +1,4 @@
-de\vmoon\varoPlugin\Team.class
+de\vmoon\varoPlugin\commands\registerCommand.class
+de\vmoon\varoPlugin\commands\unregisterCommand.class
 de\vmoon\varoPlugin\VaroPlugin.class
-de\vmoon\varoPlugin\VaroPlugin$2.class
-de\vmoon\varoPlugin\commands\TeamCommand.class
-de\vmoon\varoPlugin\VaroPlugin$1.class
+de\vmoon\varoPlugin\handler\scoreboardHandler.class
